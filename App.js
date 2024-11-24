@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import UIProvider from './providers/ui-provider';
+import RestaurantsScreen from './screens/restaurants';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <UIProvider>
+        <SafeAreaView style={styles.container}>
+          <RestaurantsScreen/>
+        </SafeAreaView>
+        <StatusBar style={'default'} />
+      </UIProvider>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 10
   },
 });
